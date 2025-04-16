@@ -1,0 +1,5 @@
+---
+plugin: gcp_compute
+projects:
+  - openshift-home-344413
+auth_kind: machineaccount

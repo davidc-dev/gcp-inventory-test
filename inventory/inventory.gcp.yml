@@ -2,6 +2,9 @@ plugin: google.cloud.gcp_compute
 projects:
   - openshift-home-344413
 auth_kind: application
+scopes:
+ - 'https://www.googleapis.com/auth/cloud-platform'
+ - 'https://www.googleapis.com/auth/compute.readonly'
 hostnames:
   # List host by name instead of the default public ip
   - name

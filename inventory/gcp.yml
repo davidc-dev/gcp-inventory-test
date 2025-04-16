@@ -1,4 +1,4 @@
-plugin: gcp_compute
+plugin: google.cloud.gcp_compute
 projects:
   - openshift-home-344413
 auth_kind: machineaccount

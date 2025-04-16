@@ -1,7 +1,7 @@
 plugin: google.cloud.gcp_compute
 projects:
   - openshift-home-344413
-auth_kind: machineaccount
+auth_kind: application
 hostnames:
   # List host by name instead of the default public ip
   - name

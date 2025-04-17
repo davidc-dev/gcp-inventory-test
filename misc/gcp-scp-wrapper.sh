@@ -23,5 +23,5 @@ host=`echo "${host}" | tr -d []`
 cmd=`echo "${cmd}" | tr -d []`
 cmd="${cmd#[}"
 cmd="${cmd%]}"
-
-exec google-cloud-sdk/bin/gcloud compute scp $opts '215868481835-compute@'"${host}" "${cmd}"
+host="215868481835-compute@${host}"
+exec google-cloud-sdk/bin/gcloud compute scp $opts "${host}" "${cmd}"

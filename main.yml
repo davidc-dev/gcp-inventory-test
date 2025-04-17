@@ -1,4 +1,5 @@
 - hosts: "{{ target_hosts }}"
+  remote_user: "{{ ssh_user }}"
   tasks:
     - name: Update the system packages
       ansible.builtin.apt:

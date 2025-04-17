@@ -23,5 +23,5 @@ host=`echo "${host}" | tr -d []`
 cmd=`echo "${cmd}" | tr -d []`
 cmd="${cmd#[}"
 cmd="${cmd%]}"
-host="215868481835-compute@${host}"
-exec google-cloud-sdk/bin/gcloud compute scp $opts "215868481835-compute@instance-20250416-160759" "${cmd}"
+cmd_updated=$(echo "$cmd" | sed -E "s/\[([^\]]+)\]/215868481835-compute@\1/")
+exec google-cloud-sdk/bin/gcloud compute scp $opts "${host}" "${cmd_updated}"

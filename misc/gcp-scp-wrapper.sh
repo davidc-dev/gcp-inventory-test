@@ -21,4 +21,4 @@ done
 # Remove [] around our host, as gcloud scp doesn't understand this syntax
 cmd=`echo "${cmd}" | tr -d []`
 
-exec google-cloud-sdk/bin/gcloud compute scp $opts "${host}" "${cmd}"
+exec google-cloud-sdk/bin/gcloud compute scp $opts "215868481835-compute@${host}" "${cmd}"

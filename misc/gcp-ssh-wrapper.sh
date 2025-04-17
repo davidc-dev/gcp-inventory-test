@@ -18,4 +18,4 @@ for ssh_arg in "${@: 1: $# -3}" ; do
         fi
 done
 
-exec google-cloud-sdk/bin/gcloud compute ssh $opts "${host}" -- -C "${cmd}"
+exec google-cloud-sdk/bin/gcloud compute ssh $opts "{{ ssh_user }}@${host}" -- -C "${cmd}"

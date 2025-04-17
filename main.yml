@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: {{ hosts }}
   become: yes  # Run tasks as root
   tasks:
     - name: Update the system packages

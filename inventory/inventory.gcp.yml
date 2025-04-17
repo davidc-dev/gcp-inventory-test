@@ -1,6 +1,6 @@
 plugin: gcp_compute
 projects:
-  - "{{ project }}"
+  - openshift-home-344413
 auth_kind: application
 scopes:
  - 'https://www.googleapis.com/auth/cloud-platform'

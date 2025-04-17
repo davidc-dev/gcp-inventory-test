@@ -1,0 +1,8 @@
+- hosts: all
+  become: yes  # Run tasks as root
+  tasks:
+    - name: Update the system packages
+      ansible.builtin.apt:
+        update_cache: yes
+        upgrade: "dist" # Upgrade all packages
+      when: ansible_os_family == "Debian"  # Only run on Debian systems

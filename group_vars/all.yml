@@ -4,6 +4,6 @@ project: "openshift-home-344413"
 zone: "us-central1-c"
 ansible_remote_tmp: '/tmp/.ansible/tmp'
 ssh_user: '215868481835-compute'
-ansible_user: 215868481835-compute
-ansible_become: true
-ansible_become_method: sudo
+# ansible_user: 215868481835-compute
+# ansible_become: true
+# ansible_become_method: sudo

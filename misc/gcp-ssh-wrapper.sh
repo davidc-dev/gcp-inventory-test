@@ -8,7 +8,7 @@ set -x
 # without modification:
 host="${@: -2: 1}"
 cmd="${@: -1: 1}"
-user="$(echo ${@} | grep -oP -o 'User=\"\K[^\"]+"')"
+user=$(echo ${@} | grep -oP -o 'User=\"\K[^\"]+')
 # Unfortunately ansible has hardcoded ssh options, so we need to filter these out
 # It's an ugly hack, but for now we'll only accept the options starting with '--'
 declare -a opts

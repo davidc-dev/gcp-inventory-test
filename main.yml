@@ -1,5 +1,4 @@
 - hosts: "{{ target_hosts }}"
-  become: yes  # Run tasks as root
   tasks:
     - name: Update the system packages
       ansible.builtin.apt:

@@ -5,13 +5,6 @@ auth_kind: application
 scopes:
  - 'https://www.googleapis.com/auth/cloud-platform'
  - 'https://www.googleapis.com/auth/compute.readonly'
-keyed_groups:
-  - key: labels
-    prefix: label
-  - key: zone
-    prefix: zone
-  - key: (tags.items|list)
-    prefix: tag
 hostnames:
   # List host by name instead of the default public ip
   - name

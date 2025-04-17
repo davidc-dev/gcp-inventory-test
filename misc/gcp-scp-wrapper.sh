@@ -7,6 +7,8 @@
 # arguments off of the list and then pass all of the other SSH flags through
 # without modification:
 host="${@: -2: 1}"
+host="${host#[}"
+host="${host%]}"
 cmd="${@: -1: 1}"
 
 # Unfortunately ansible has hardcoded scp options, so we need to filter these out

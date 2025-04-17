@@ -1,4 +1,5 @@
 - hosts: "{{ target_hosts }}"
+  become: true
   tasks:
     - name: Update the system packages
       ansible.builtin.apt:

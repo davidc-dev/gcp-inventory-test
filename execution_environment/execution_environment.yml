@@ -8,5 +8,6 @@ dependencies:
   galaxy: requirements.yml
 additional_build_steps:
   prepend_final: |
+    COPY gcp-ssh-wrapper.sh /runner/
     COPY google-cloud-sdk.repo /etc/yum.repos.d/
     RUN /usr/bin/microdnf install -y google-cloud-cli

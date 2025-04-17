@@ -1,6 +1,6 @@
 plugin: gcp_compute
 projects:
-  - {{ project }}
+  - "{{ project }}"
 auth_kind: application
 scopes:
  - 'https://www.googleapis.com/auth/cloud-platform'

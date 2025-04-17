@@ -5,4 +5,3 @@
         update_cache: yes
         upgrade: "dist" # Upgrade all packages
       when: ansible_os_family == "Debian"  # Only run on Debian systems
-      become: true

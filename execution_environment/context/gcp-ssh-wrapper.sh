@@ -8,7 +8,9 @@ set -x
 # without modification:
 host="${@: -2: 1}"
 cmd="${@: -1: 1}"
-user=$(echo ${@} | grep -oP -o 'User=\"\K[^\"]+')
+service_account=$(curl -v -w "\n" -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/email)
+username="${service_account%@*}"
+#user=$(echo ${@} | grep -oP -o 'User=\"\K[^\"]+')
 # Unfortunately ansible has hardcoded ssh options, so we need to filter these out
 # It's an ugly hack, but for now we'll only accept the options starting with '--'
 declare -a opts
@@ -19,4 +21,4 @@ for ssh_arg in "${@: 1: $# -3}" ; do
 done
 
 #exec google-cloud-sdk/bin/gcloud compute ssh $opts "${user}@${host}" -- -C "${cmd}"
-exec gcloud compute ssh $opts "${user}@${host}" -- -C "${cmd}"
+exec gcloud compute ssh $opts "${username}@${host}" -- -C "${cmd}"

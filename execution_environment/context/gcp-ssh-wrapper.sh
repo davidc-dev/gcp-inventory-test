@@ -9,6 +9,8 @@ set -x
 host="${@: -2: 1}"
 cmd="${@: -1: 1}"
 service_account=$(curl -v -w "\n" -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/email)
+zone_extract=$(curl -v -w "\n" -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/zone)
+zone=$(basename "$zone_extract")
 username="${service_account%@*}"
 #user=$(echo ${@} | grep -oP -o 'User=\"\K[^\"]+')
 # Unfortunately ansible has hardcoded ssh options, so we need to filter these out
@@ -21,4 +23,4 @@ for ssh_arg in "${@: 1: $# -3}" ; do
 done
 
 #exec google-cloud-sdk/bin/gcloud compute ssh $opts "${user}@${host}" -- -C "${cmd}"
-exec gcloud compute ssh $opts "${username}@${host}" -- -C "${cmd}"
+exec gcloud compute ssh --impersonate-service-account=$service_account --zone=$zone --tunnel-through-iap $opts "${host}" -- -C "${cmd}"

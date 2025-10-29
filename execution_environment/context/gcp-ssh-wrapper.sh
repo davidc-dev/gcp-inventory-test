@@ -2,7 +2,7 @@
 
 # This script acts as an SSH wrapper for gcloud compute ssh
 service_account=$(curl -v -w "\n" -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/email)
-zone_extract=$(curl -v -w "\n" -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/zone)
+zone_extract=$(curl -v -w "\n" -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/zone)
 project_id=$(curl -v -w "\n" -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/project/project-id)
 zone=$(basename "$zone_extract")
 # Extract the target host from the arguments

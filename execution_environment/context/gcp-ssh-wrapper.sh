@@ -22,4 +22,4 @@ done
 
 # Execute gcloud compute ssh with the necessary arguments
 # You might need to adjust project and zone based on your setup
-exec gcloud compute ssh $opts "${host}"--impersonate-service-account=$service_account --project=$project_id --zone=$zone --tunnel-through-iap --ssh-flag="-A"  -- -C "${cmd}"
+exec gcloud compute ssh $opts "sa_457587479195-compute${host}" --impersonate-service-account=$service_account --project=$project_id --zone=$zone --tunnel-through-iap --ssh-flag="-A"  -- -C "${cmd}"

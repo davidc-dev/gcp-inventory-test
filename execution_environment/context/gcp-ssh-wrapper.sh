@@ -9,18 +9,17 @@ zone=$(basename "$zone_extract")
 arg="$@"
 TARGET_HOST=$(echo "$arg" | sed -n "s/.* \([^ ]\+\) '\/bin\/sh.*/\1/p")
 
-# for arg in "$@"; do
-# if [[ "$arg" =~ ^[a-zA-Z0-9._-]+$ ]]; then
-#         TARGET_HOST="$arg"
-#         break
-# fi
-# done
-
-# if [ -z "$TARGET_HOST" ]; then
-# echo "Error: Could not determine target host from arguments."
-# exit 1
-# fi
+host="${@: -2: 1}"
+cmd="${@: -1: 1}"
+# Unfortunately ansible has hardcoded ssh options, so we need to filter these out
+# It's an ugly hack, but for now we'll only accept the options starting with '--'
+declare -a opts
+for ssh_arg in "${@: 1: $# -3}" ; do
+        if [[ "${ssh_arg}" == --* ]] ; then
+                opts+="${ssh_arg} "
+        fi
+done
 
 # Execute gcloud compute ssh with the necessary arguments
 # You might need to adjust project and zone based on your setup
-exec gcloud compute ssh "$TARGET_HOST" --project=$poject_id --zone=$zone --tunnel-through-iap --ssh-flag="-A" "$@"
+exec gcloud compute ssh $opts "${host}"--impersonate-service-account=$service_account ---project=$poject_id --zone=$zone --tunnel-through-iap --ssh-flag="-A"  -- -C "${cmd}"

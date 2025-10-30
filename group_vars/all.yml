@@ -1,5 +1,5 @@
 ansible_ssh_args: '--zone="{{ zone }}" --project="{{ project }}" --no-user-output-enabled --quiet'
 # project: "openshift-home-344413"
 # zone: "us-central1-c"
-# ansible_user: 215868481835-compute
+
 

@@ -1,4 +1,4 @@
-ansible_ssh_args: '--zone="{{ zone }}" --project="{{ project }}" --tunnel-through-iap  --verbosity=debug'
+ansible_ssh_args: '--zone="{{ zone }}" --project="{{ project }}" --tunnel-through-iap  --no-user-output-enabled --quiet'
 # ansible_ssh_args: '--zone="{{ zone }}" --project="{{ project }}" --no-user-output-enabled --quiet'
 # project: "openshift-home-344413"
 # zone: "us-central1-c"

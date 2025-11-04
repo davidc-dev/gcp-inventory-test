@@ -1,0 +1,12 @@
+---
+plugin: google.cloud.gcp_compute
+projects:
+ - openenv-zmczq
+auth_kind: application
+scopes:
+ - 'https://www.googleapis.com/auth/cloud-platform'
+ - 'https://www.googleapis.com/auth/compute.readonly'
+hostnames:
+  - name
+compose:
+  ansible_host: name

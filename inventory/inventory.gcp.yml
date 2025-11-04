@@ -1,7 +1,7 @@
 ---
 plugin: gcp_compute
 projects:
-  - openenv-ccvzl
+  - openenv-zmczq
 auth_kind: application
 scopes:
  - 'https://www.googleapis.com/auth/cloud-platform'

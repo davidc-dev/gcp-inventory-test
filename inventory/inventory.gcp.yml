@@ -1,5 +1,5 @@
 ---
-plugin: gcp_compute
+enable_plugins: gcp_compute
 projects:
   - openenv-zmczq
 auth_kind: application

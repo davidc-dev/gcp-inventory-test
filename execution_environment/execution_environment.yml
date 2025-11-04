@@ -6,9 +6,6 @@ options:
   package_manager_path: /usr/bin/microdnf
 dependencies:
   galaxy: requirements.yml
-python:
-  requirements:
-    - requirements.txt
 additional_build_steps:
   prepend_final: |
     COPY gcp-ssh-wrapper.sh /usr/local/bin/gcp-ssh-wrapper

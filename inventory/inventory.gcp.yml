@@ -1,7 +1,5 @@
 ---
 plugin: google.cloud.gcp_compute
-projects:
-  - *
 auth_kind: application
 scopes:
  - 'https://www.googleapis.com/auth/cloud-platform'

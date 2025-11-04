@@ -1,8 +1,17 @@
 - hosts: "{{ target_hosts }}"
   become: true
   tasks:
-    - name: Update the system packages
-      ansible.builtin.apt:
-        update_cache: yes
-        upgrade: "dist" # Upgrade all packages
-      when: ansible_os_family == "Debian"  # Only run on Debian systems
+    - name: Print debug message
+      ansible.builtin.debug:
+        msg: "Hello, world!"
+    # - name: Update the system packages
+    #   ansible.builtin.apt:
+    #     update_cache: yes
+    #     upgrade: "dist" # Upgrade all packages
+    #   when: ansible_os_family == "Debian"  # Only run on Debian systems
+    # - name: Perform DNF update
+    #   ansible.builtin.dnf:
+    #     name: "*"  # Update all packages
+    #     state: latest
+    #     update_cache: yes
+    #   when: ansible_os_family == "RedHat"

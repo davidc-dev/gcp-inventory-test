@@ -4,6 +4,8 @@
     - name: Print debug message
       ansible.builtin.debug:
         msg: "Hello, world!"
+    - name: show id
+      ansible.builtin.shell: "id"
     # - name: Update the system packages
     #   ansible.builtin.apt:
     #     update_cache: yes
